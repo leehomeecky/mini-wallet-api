@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: mini-wallet-api
+    build: .
+    ports:
+      - '5000:5000'
+    environment:
+      - PORT=5000
+      - JWT_SECRET=your_jwt_secret
+      - PAYSTACK_SECRET_KEY=sk_test_xxxx
+      - MONGODB_URI=mongodb://mongo:27017/wallet_db
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+    command: npm run start:dev
+
+  mongo:
+    image: mongo:6
+    container_name: mongo-db
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
