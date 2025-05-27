@@ -8,23 +8,6 @@ A secure wallet API built with **Node.js**, **Express**, **MongoDB**, and **Type
 - 🔐 Auth middleware & transaction PIN verification
 - 📦 Clean architecture (controller/service/repo)
 
----
-
-## 📁 Project Structure
-
-````bash
-src/
-├── controllers/
-├── interfaces/
-├── middlewares/
-├── models/
-├── repositories/
-├── routes/
-├── services/
-├── utils/
-├── validators/
-└── app.ts
-
 ## 🚀 Features
 
 ### 🧍 User Wallet
@@ -41,7 +24,7 @@ src/
 ### 🔒 Security
 - JWT-based Auth
 - Hashed transaction PIN
-- Webhook verification logic in place (optional)
+- Webhook verification logic in place
 
 ---
 
@@ -50,9 +33,8 @@ src/
 | Stack       | Tool                    |
 |-------------|-------------------------|
 | Language    | TypeScript              |
-| Framework   | Express.js              |
+| Framework   | Node.js/Express.js      |
 | Database    | MongoDB (Mongoose)      |
-| Auth        | JWT + bcrypt            |
 | Payments    | Paystack API            |
 | Validation  | Zod                     |
 | HTTP Client | Axios + custom util     |
@@ -64,10 +46,10 @@ src/
 1. **Clone & Install**
 
 ```bash
-git clone https://github.com/your-username/mini-wallet-api.git
+git clone https://github.com/leehomeecky/mini-wallet-api.git
 cd mini-wallet-api
 npm install
-
+```
 ## Configure `.env`
 
 ```env
@@ -77,22 +59,14 @@ JWT_SECRET=your_jwt_secret
 
 # Paystack
 PAYSTACK_SECRET_KEY=sk_test_*************
-
+```
 ## Run the App
 
 ```bash
-npm run dev
-
-## 📫 API Endpoints (Simplified)
-
-| Method | Endpoint                  | Description                        |
-|--------|---------------------------|----------------------------------|
-| GET    | /wallet/balance           | Get wallet balance                |
-| POST   | /wallet/fund              | Fund wallet                      |
-| POST   | /wallet/transfer          | Internal wallet-to-wallet transfer|
-| POST   | /wallet/transfer/bank     | External bank transfer via Paystack|
-| GET    | /wallet/transactions      | Get transaction history (filters)|
-| POST   | /webhook/paystack         | Paystack transfer webhook        |
+npm run start:dev
+```
+## 📫 API Endpoints (Postman Docs)
+[View the API documentation on Postman](https://documenter.getpostman.com/view/23282509/2sB2qdfKQC)
 
 ---
 
@@ -110,16 +84,8 @@ Supports filtering by:
 
 ```http
 GET /wallet/transactions?type=DEBIT&status=SUCCESSFUL&limit=10&offset=0&startDate=2024-01-01
-
+```
 ## 🧪 Testing
 
 - Unit tests for service + repo layers
 - Integration tests for core flows
-
----
-
-## 🙌 Credits
-
-Built with ❤️ for educational & assessment purposes.
-
-````
